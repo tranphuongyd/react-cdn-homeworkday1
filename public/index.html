@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Homework Day1</title>
+<style>
+    body {
+        font-family: cursive;
+    }
+    .container {
+        background-color: #eff3fc;
+        padding: 20px;
+    }
+    .report-img {
+        width: 20px;
+    }
+</style>
+
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+    function Report(props) {
+        return React.createElement('div', {  
+            style: {
+                width: '40%',
+                float: 'left',
+                marginLeft: '20px',
+                backgroundColor: 'white',
+                padding: '8px'
+            }         
+        },
+        React.createElement('img', {
+            className: 'report-img',
+            src: props.image
+        }),
+        React.createElement('p', {
+            style: {
+                fontWeight: 'bold',
+                fontSize: '40px'
+            }
+        }, props.name),
+        React.createElement('p', {
+            style: {
+                fontSize: '12px'
+            }
+        }, props.subName))
+    }
+
+    var App = React.createElement('div', {
+            className: 'container'
+        }, React.createElement(Report, {
+            name: '158.3 mi',
+            subName: 'Distance driven',
+            image: 'https://images-na.ssl-images-amazon.com/images/I/519EqeII-cL._SY355_.png'
+        }), React.createElement(Report, {
+            name: '$1,428',
+            subName: 'Vehicles track',
+            image: 'https://image.flaticon.com/icons/svg/190/190411.svg'
+        }),
+        React.createElement('div', {
+            style: {
+                clear: 'both'
+            }
+        })
+        )
+
+    var root = document.querySelector('#root');
+    ReactDOM.render(App, root);
+</script>
+</body>
+</html>
